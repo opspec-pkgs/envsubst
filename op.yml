@@ -1,0 +1,23 @@
+name: github.com/opspec-pkgs/envsubst
+description: replaces references of the form $VARIABLE or ${VARIABLE} with their corresponding values
+inputs:
+  variables:
+    object:
+      description: variables which, if referenced, will be replaced in template
+      default: {}
+  template:
+    file:
+      description: template containing references in the form ${envVar} & $envVar
+outputs:
+  result:
+    file:
+      description: result of replacing variables in template
+version: 1.0.0
+run:
+  container:
+    image: { ref: 'node:8.9.0-alpine' }
+    cmd: [node, /cmd.js ]
+    files:
+      /cmd.js:
+      /variables.json: $(variables)
+      /template: $(template)
