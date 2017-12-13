@@ -5,5 +5,11 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[1.0.1] - 2017-12-12
+
+### Fixes
+
+- result empty
+
 ## \[1.0.0] - 2017-11-29
 

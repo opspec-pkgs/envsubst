@@ -11,4 +11,4 @@ Object.entries(variables).forEach(([name, value]) => {
     hydratedTemplate = hydratedTemplate.replace(new RegExp(`\\$${name}`, 'g'), value);
 });
 
-fs.writeFileSync(path.join(__dirname, 'result'), hydratedTemplate);
+fs.writeFileSync('/result', hydratedTemplate);
