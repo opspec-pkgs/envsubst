@@ -5,6 +5,12 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[1.0.2] - 2017-12-20
+
+### Fixes
+
+- values containing JSON "special characters" not swapped verbatim
+
 ## \[1.0.1] - 2017-12-12
 
 ### Fixes

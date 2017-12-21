@@ -12,7 +12,7 @@ outputs:
   result:
     file:
       description: result of replacing variables in template
-version: 1.0.1
+version: 1.0.2
 run:
   container:
     image: { ref: 'node:8.9.0-alpine' }
