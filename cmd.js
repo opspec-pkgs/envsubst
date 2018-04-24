@@ -1,17 +1,25 @@
-const variables = require('./variables.json');
-const fs = require('fs');
-const path = require('path');
+const variables = require('/variables.json');
+const envsub = require('envsub');
 
-let hydratedTemplate = fs.readFileSync(path.join(__dirname, 'template'), 'utf8');
+const envs = Object
+    .entries(variables)
+    .map(([name, value]) => {
+        if (typeof value === 'string') {
+            // stringifying strings adds surrounding dquotes; we don't want that
+            return { name, value }
+        }
+        return { name, value: JSON.stringify(value) }
+    })
 
-Object.entries(variables).forEach(([name, value]) => {
-    let literalValue = JSON.stringify(value);
-    literalValue = literalValue.substring(1, literalValue.length - 1);
-
-    // replace ${name}
-    hydratedTemplate = hydratedTemplate.replace(new RegExp(`\\$\{${name}}`, 'g'), literalValue);
-    // replace $name
-    hydratedTemplate = hydratedTemplate.replace(new RegExp(`\\$${name}`, 'g'), literalValue);
+envsub({
+    templateFile: '/template',
+    outputFile: '/result',
+    options: {
+        envs,
+        protect: true,
+        syntax: 'dollar-both',
+    }
+}).catch(err => {
+    console.error(err.message);
+    process.exit(1)
 });
-
-fs.writeFileSync('/result', hydratedTemplate);

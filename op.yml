@@ -12,10 +12,11 @@ outputs:
   result:
     file:
       description: result of replacing variables in template
-version: 1.1.0
+version: 2.0.0
+opspec: 0.1.6
 run:
   container:
-    image: { ref: 'node:8.9.0-alpine' }
+    image: { ref: 'opspecpkgs/envsubst:2.0.0' }
     cmd: [node, /cmd.js ]
     files:
       /cmd.js:
