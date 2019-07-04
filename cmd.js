@@ -10,10 +10,9 @@ Object.entries(variables).forEach(([name, value]) => {
     }
 
     // replace ${name}
-    hydratedTemplate = hydratedTemplate.replace(new RegExp(`\\$\{${name}}`, 'g'), value);
+    hydratedTemplate = hydratedTemplate.replace(new RegExp(`\\$\{${name}}`, 'g'), () => value);
     // replace $name
-    hydratedTemplate = hydratedTemplate.replace(new RegExp(`\\$${name}`, 'g'), value);
+    hydratedTemplate = hydratedTemplate.replace(new RegExp(`\\$${name}`, 'g'), () => value);
 });
-
 
 fs.writeFileSync('/result', hydratedTemplate);
