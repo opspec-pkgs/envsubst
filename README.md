@@ -1,19 +1,15 @@
-[![Build Status](https://travis-ci.org/opspec-pkgs/envsubst.svg?branch=master)](https://travis-ci.org/opspec-pkgs/envsubst)
+[![Build Status](https://github.com/opspec-pkgs/envsubst/workflows/build/badge.svg?branch=main)](https://github.com/opspec-pkgs/envsubst/actions?query=workflow%3Abuild+branch%3Amain)
 
 # Problem statement
 
 replaces references of the form $VARIABLE or ${VARIABLE} with their corresponding values
 
-# Format
-
-the op uses [![opspec 0.1.6](https://img.shields.io/badge/opspec-0.1.6-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.6) definition format
-
 # Example usage
 
-## Install
+## Visualize
 
 ```shell
-opctl op install github.com/opspec-pkgs/envsubst#2.0.1
+opctl ui github.com/opspec-pkgs/envsubst#2.0.1
 ```
 
 ## Run
@@ -28,9 +24,9 @@ opctl run github.com/opspec-pkgs/envsubst#2.0.1
 op:
   ref: github.com/opspec-pkgs/envsubst#2.0.1
   inputs:
-    template:
-    # params w/ default
-    variables:
+    template:  # 👈 required; provide a value
+  ## uncomment to override defaults
+  #   variables: [object Object]
   outputs:
     result:
 ```
@@ -38,7 +34,7 @@ op:
 # Support
 
 join us on
-[![Slack](https://opctl-slackin.herokuapp.com/badge.svg)](https://opctl-slackin.herokuapp.com/)
+[![Slack](https://img.shields.io/badge/slack-opctl-E01563.svg)](https://join.slack.com/t/opctl/shared_invite/zt-51zodvjn-Ul_UXfkhqYLWZPQTvNPp5w)
 or
 [open an issue](https://github.com/opspec-pkgs/envsubst/issues)
 
@@ -52,4 +48,4 @@ and [tagged](https://git-scm.com/book/en/v2/Git-Basics-Tagging); see
 # Contributing
 
 see
-[project/CONTRIBUTING.md](https://github.com/opspec-pkgs/project/blob/master/CONTRIBUTING.md)
+[project/CONTRIBUTING.md](https://github.com/opspec-pkgs/project/blob/main/CONTRIBUTING.md)
